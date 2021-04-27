@@ -1,0 +1,52 @@
+<section class=" d-flex bg-dark home">
+  <section class="container">
+    <div class="row justify-content-center my-4">
+        <div class="col-lg-8">
+            <h1 class="display-2 text-white">All Colleges</h1>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <span class="fs-4">College Name</span>
+                    <span class = " fs-4 position-absolute top-0 end-0 me-4">No. of Users</span>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <% for(let i = 0; i<colleges.length ; i++){ %> 
+                  <li class="list-group-item my-1 fs-5"><span><%= i+1 %>. </span><%= colleges[i].name %> <span class="position-absolute top-0 end-0 me-4"><a href="#" data-bs-target="#<%= colleges[i].name.split(" ").join("") %>Modal" data-bs-toggle="modal" ><%= colleges[i].users.length %></a></span></li>
+                  <div class="modal fade" id="<%= colleges[i].name.split(" ").join("") %>Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel"><%= colleges[i].name %></h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <div class="card">
+                                        <ul class="list-group list-group-flush">
+                                          <% for(let j = 0; j<colleges[i].users.length; j++){ %> 
+                                          <li class="list-group-item my-1"><span><%= j+1 %>. </span><span class="mx-1"><%= colleges[i].users[j].firstname %> </span>- <span><%= colleges[i].users[j].email %> </span></li>
+                                          <% } %> 
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %> 
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+  <!-- Modal -->
+  
+
+</section>
+</section>
